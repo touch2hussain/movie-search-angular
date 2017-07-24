@@ -1,0 +1,99 @@
+<div class="container-fluid" ng-cloak>
+<div class="logout">
+  <a href="javascript:;" ng-click='doLogout()' >LOGOUT</a>
+</div>
+  <div class="row">
+
+    <!-- filter sidebar -->
+    <div id="filter-sidebar" class="col-xs-6 col-sm-3 visible-sm visible-md visible-lg collapse sliding-sidebar">
+      <div>
+        <h4 data-toggle="collapse" data-target="#group-1">
+          <i class="fa fa-fw fa-caret-down parent-expanded"></i>
+          <i class="fa fa-fw fa-caret-right parent-collapsed"></i>
+          Genre
+        </h4>
+        <div id="group-1" class="list-group collapse in" style="margin-top: 20px;">
+        <div class="radio list-group-item">
+            <label><input type="radio" name="optradio"  ng-click="filterMovies('all')">All</label>
+          </div>
+
+          <div class="radio list-group-item">
+            <label><input type="radio" name="optradio"  ng-click="filterMovies('action')">Action</label>
+          </div>
+          <div class="radio list-group-item">
+            <label><input type="radio" name="optradio"  ng-click="filterMovies('animation')">Animation</label>
+          </div>
+          <div class="radio list-group-item">
+            <label><input type="radio" name="optradio"  ng-click="filterMovies('comedy')">Comedy</label>
+          </div>
+          <div class="radio list-group-item">
+            <label><input type="radio" name="optradio"  ng-click="filterMovies('horror')">Horror</label>
+          </div>
+        </div>
+      </div>
+    
+      
+    </div>
+
+    <!-- table container -->
+    <div class="col-sm-9">
+    <div class="row">
+      <div class="pull-right" style="margin-right: 15px;">
+        <input type="text" ng-model="search" class="search form-control" placeholder="Search by Movie name">
+      </div>
+      <div class="row" style="margin-bottom: 15px;">
+      <!-- BEGIN PRODUCTS -->
+
+      </div>
+      <div class="cssload-thecube" ng-if='isLoading'>
+        <div class="cssload-cube cssload-c1"></div>
+        <div class="cssload-cube cssload-c2"></div>
+        <div class="cssload-cube cssload-c4"></div>
+        <div class="cssload-cube cssload-c3"></div>
+      </div>
+      <div class="col-md-4 col-sm-6" ng-repeat="movie in testValue=(movies | filter : search)">
+        <span class="thumbnail text-center">
+            
+            <h4 class="text-danger">{{movie.name}}</h4>
+            
+            <p><span>Language: </span> {{movie.language}}</p>
+            <p><span>Genre: </span> {{movie.genre}}</p>
+            <p class="truncate" title="{{movie.actor}}"><span>Actor: </span> {{movie.actor}}</p>
+            <p class="truncate" title="{{movie.actress}}"><span>Actress:</span> {{movie.actress}}</p>
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal-{{$index}}" style="margin-bottom: 8px;">
+              Watch
+            </button>
+            <div class="modal fade" id="myModal-{{$index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" ng-click='closeModal($index)' aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">{{movie.name}}</h4>
+                  
+                </div>
+                <div class="modal-body">
+                 <video width="100%" controls  id="videoclip-{{$index}}">
+                  <source ng-src="{{movie.link}}"; type="video/mp4">
+                  <source ng-src="{{movie.link}}"; type="video/ogg">
+                  Your browser does not support the video tag.
+                </video>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" ng-click='closeModal($index)'>Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </span>
+      </div>
+
+      <div class="text-center no-result" ng-show="!isLoading && !testValue.length">No movies found!</div>
+  </div>
+
+    </div>
+
+  </div>
+</div>

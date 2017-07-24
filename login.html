@@ -1,0 +1,15 @@
+
+	<div class="login-page" ng-cloak>
+		<p ng-show='showLogout' class="loggedIn">You are Logged in already ! <br />click <a href="javascript:;" ng-click='doLogout()' >here</a> to logout.</p>
+	    <form ng-submit="formSubmit()" class="form" ng-show='!showLogout'>
+	    	<p class="text-center login-msg">Login</p>
+			<input type="text" ng-model="username" placeholder="username" required=""/>
+			<input type="password" ng-model="password" placeholder="password" required=""/>
+			<button type="submit" class="btn btn-success">Login</button>
+			<span class="text-danger">{{ error }}</span>
+	    </form>
+	</div>
+
+
+
+	

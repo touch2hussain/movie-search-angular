@@ -1,0 +1,45 @@
+{
+  "movies": {
+    "list": [{
+        "name": "Blade Runner",
+        "language": "English",
+        "genre": "action",
+        "actor": "Harrison Ford, Rutger Hauer",
+        "actress": "Sean Young",
+        "link": "https://storage.googleapis.com/movie-database/movie-video.mp4"
+      },
+      {
+        "name": "Cool Hand Luke",
+        "language": "horror",
+        "genre": "action",
+        "actor": "Hampton Fancher, Paul Newman",
+        "actress": "Lou Antonio",
+        "link": "https://storage.googleapis.com/movie-database/movie-video.mp4"
+      },
+      {
+        "name": "Baazigar",
+        "language": "Hindi",
+        "genre": "action",
+        "actor": "Shahrukh Khan, Jhony Liver",
+        "actress": "Kajal",
+        "link": "https://storage.googleapis.com/movie-database/movie-video.mp4"
+      },
+      {
+        "name": "Juice",
+        "language": "Kannada",
+        "genre": "animation",
+        "actor": "Shivraj Kumar, Kiran",
+        "actress": "Prema, Dayana",
+        "link": "https://storage.googleapis.com/movie-database/movie-video.mp4"
+      },
+      {
+        "name": "Ice Age - Gone Nutty",
+        "language": "English",
+        "genre": "animation",
+        "actor": "",
+        "actress": "",
+        "link": "https://storage.googleapis.com/movie-database/56967629_mp4_h264_aac_hd.mp4"
+      }
+    ]
+  }
+}
